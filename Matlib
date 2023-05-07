@@ -1,0 +1,150 @@
+C:\Users\itobu>pip install matplotlib
+
+import matplotlib.pyplot as plt
+
+xtacke=[0,6]
+ytacke=[0,250]
+plt.plot(xtacke,ytacke) #stampa grafik
+plt.plot(xtacke,ytacke,'o') #stampa samo tacke
+plt.show()
+
+import matplotlib.pyplot as plt
+
+#xtacke=[0,6,1,10] #ako ne posatvimo x tacke po defoltu ih dodeljuje na 0,5
+ytacke=[0,250,300,200]
+#plt.plot(ytacke,marker='o') #stampa grafik marker dodatje tacke na mesta elemenata liste
+plt.plot(ytacke,'o-') #stampa samo tacke  string tackebojalinija  '-' znak za liniju, 
+plt.plot(ytacke,'o-r') #stampa samo tacke  string tackebojalinija  '-' znak za liniju, 'r' skraceno za red
+
+plt.show()
+
+xtacke=[5,10,15,20]
+x1tacke=[10,20,30,40]
+
+ytacke=[0,250,300,200]
+y1tacke=[0,50,150,200]
+plt.plot(xtacke,ytacke,x1tacke,y1tacke)
+plt.title('Padavine')
+plt.xlabel('X osa')
+plt.ylabel('Y osa')
+plt.grid()
+#plt.plot(ytacke,'o:c') 
+#plt.plot(y1tacke,'o:g')
+plt.show()
+
+
+#odvojeno štampanje grafika
+x=[1,2,3,4]
+y=[10,20,30,40]
+plt.subplot(2,2,1) #definisati parametre grafika red kolona grafik
+plt.grid()
+plt.xlabel('Sreca')
+plt.plot(x,y)
+
+x=[5,10,15]
+y=[50,100,150]
+plt.subplot(2,2,2) #definisati parametre grafika red kolona grafik
+plt.title('Drugo') #naslov grafika
+plt.plot(x,y)
+
+x=[10,20,30]
+y=[1,2,3]
+plt.subplot(2,2,3) #definisati parametre grafika red kolona grafik
+plt.plot(x,y)
+
+x=[1,2,3,4]
+y=[1,2,3,4]
+plt.subplot(2,2,4) #definisati parametre grafika red kolona grafik
+plt.grid()
+plt.plot(x,y)
+
+plt.suptitle('Grafici') #naslov za sve grafike
+plt.show()
+#odvojeno štampanje grafika
+
+# zadacic
+x=[1,2]
+y=[4,2]
+
+plt.plot(x,y,'o:r')
+plt.grid()
+plt.xlabel('Polugodiste')
+plt.ylabel('Ocene')
+plt.title('Uzas')
+plt.show()
+#
+
+
+x=[1,2]
+y=[4,2]
+
+plt.plot(x,y,'o:r')
+plt.plot(0,0)
+plt.grid()
+plt.xlabel('Polugodiste')
+plt.ylabel('Ocene')
+plt.title('Uzas')
+plt.show()
+
+
+import matplotlib.pyplot as plt
+
+
+x=['A','B','C']
+y=[1,2,3]
+
+plt.subplot(2,1,1)
+plt.bar(x,y,color='red',width=.5)
+plt.subplot(2,1,2)
+plt.barh(x,y,color='black',height=.5)
+plt.show()
+
+
+
+import matplotlib.pyplot as plt
+
+
+x=['A','B','C']
+y=[1,2,3]
+
+plt.subplot(2,1,1)
+plt.bar(x,y,color='red',width=.5)
+plt.subplot(2,1,2)
+plt.barh(x,y,color='black',height=.5)
+plt.show()
+
+
+import matplotlib.pyplot as plt
+
+#l=[35,25,15,25]
+#l1=['apples','bannanas','grapes','cherries'] #imena
+#e=[0.2,0.1,0.1,0.2] #odvajanje dela charta
+#plt.pie(l,labels=l1,explode=e,autopct='%1.1f%%')
+##plt.pie(l,labels=l1)
+#plt.legend(title='My Legend:',loc='upper left') #legenda charta
+#plt.show()
+
+xtacke=[0,1,2,3]
+ytacke=[0,250,300,200]
+plt.subplot(4,4,1)
+plt.grid()
+plt.plot(xtacke,ytacke)
+plt.savefig('Plot 1')
+
+x=['Dorucak','Rucak','Vecera']
+y=[25,32,110]
+plt.subplot(4,4,3)
+plt.xlabel('Obrok')
+plt.ylabel('Broj gostiju')
+plt.bar(x,y)
+plt.savefig('Plot 2')
+
+l=[25,25,25,25]
+l1=['voda','vino','hled','masline'] #imena
+#plt.figure(figsize=(2,2))
+plt.subplot(4,4,9)
+plt.pie(l,labels=l1)
+
+plt.show()
+
+plt.savefig('Moj plot')
