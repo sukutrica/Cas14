@@ -148,3 +148,65 @@ plt.pie(l,labels=l1)
 plt.show()
 
 plt.savefig('Moj plot')
+
+
+import matplotlib.pyplot as plt
+
+class Plate:
+    def __init__(self,rednibroj,imepprezime,plata):
+        self.rednibr=rednibroj
+        self.imeprezime=imepprezime
+        self.plata=plata
+    
+    def __str__ (self):
+        return('{} {} {}'.format(self.rednibr,self.imeprezime,self.plata))
+    
+
+class UcirajRadnike:
+    def __init__ (self):
+        self.podaci=[]
+
+    def ucitaj(self):
+        l=[line.strip() for line in open('plata.txt','r')]
+        for x in l:
+            redbroj=x.split('|')[0]
+            imeprezime=x.split('|')[1]
+            plata=x.split('|')[2]
+            pl=Plate(redbroj,imeprezime,plata)
+            self.podaci.append(pl)
+    def barplot(self):
+        self.ime=[]
+        self.plata=[]
+        for x in self.podaci:
+            self.ime.append(x.imeprezime)
+            self.plata.append(x.plata)
+        ukupno_splata=0
+        for x in self.plata:
+            ukupno_splata=ukupno_splata+eval(x)
+        print(ukupno_splata)
+        procent=[]
+        for x in self.plata:
+            a=(eval(x)/ukupno_splata)*100
+            procent.append(a)
+        print(procent)
+        plt.subplot(2,1,1)
+        plt.bar(self.ime,self.plata)
+        plt.subplot(2,1,2)
+        plt.pie(procent,labels=self.ime)
+        
+        
+        plt.show()
+
+
+
+P=UcirajRadnike()
+P.ucitaj()
+for x in P.podaci:
+    print(x)
+P.barplot()
+print(P.ime)
+print(P.plata)
+
+
+
+
